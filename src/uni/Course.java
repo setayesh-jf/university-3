@@ -8,10 +8,10 @@ public class Course {
     public int units;
 
     public Course(String title, int units){
+        this.id = courseList.size() + 1;
         this.title = title;
         this.units = units;
         courseList.add(this);
-       this.id = courseList.size();
     }
 
     public static Course findById (int ID){

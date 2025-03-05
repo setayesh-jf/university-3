@@ -9,12 +9,12 @@ public class Major {
     public static ArrayList<Major> majorList = new ArrayList<>();
     public String name;
     public final int capacity;
-    public int numberOfStudents;
+    public int numberOfStudents = 0;
 
 
     public Major(String name, int capacity){
+        this.id = majorList.size() + 1;
         this.name = name;
-        this.id = majorList.size();
         this.capacity = capacity;
         majorList.add(this);
     }
@@ -33,6 +33,8 @@ public class Major {
         if (numberOfStudents < capacity){
             numberOfStudents++;
         }
-        System.out.println("error");
+        else {
+            System.out.println("khata! zarfiat takmil shodeh");
+        }
     }
 }
