@@ -5,11 +5,10 @@ import java.util.HashMap;
 
 public class Transcript {
     public int studentID;
-    public HashMap<Integer, Double> transcript;
+    public HashMap<Integer, Double> transcript = new HashMap<>();
 
     public Transcript (int studentID){
         this.studentID = studentID;
-        this.transcript = new HashMap<>();
     }
 
     public void setGrade (int presentedCourseID, double grade){
@@ -17,7 +16,7 @@ public class Transcript {
         if (presentedCourse != null && presentedCourse.studentIds.contains(studentID)){
             transcript.put(presentedCourseID, grade);
         }
-        System.out.println("error");
+        System.out.println("error, Student nemitoneh dar class bashe");
     }
 
     public void printTranscript(){
@@ -46,17 +45,12 @@ public class Transcript {
             if (presentedCourse != null) {
                 Course course = Course.findById(presentedCourse.courseID);
                 if (course != null) {
-                    nomreha = nomreha + transcript.get(courseID) * course.units;
-                    Units = Units + course.units;
+                    nomreha =+ transcript.get(courseID) * course.units;
+                    Units =+ course.units;
                 }
             }
         }
-        if (Units != 0){
-            return nomreha / Units;
-        }
-        else {
-            return 0.0;
-        }
+        return Units == 0 ? 0.0 : nomreha / Units;
     }
 
 }
